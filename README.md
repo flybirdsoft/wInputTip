@@ -1,6 +1,6 @@
 # wInputTip
 适用于Mobile端或PC端输入框提示组件
-
+作者：邬畏畏
 # 调用方式示例一：
 
 	var t = new wInputTip({
