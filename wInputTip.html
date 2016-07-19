@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+<style>
+.wTextLabel{
+	transition: all .1s;
+	line-height: 34px;
+	height: 34px;
+}
+input{
+	height: 30px;
+	line-height: 30px;
+	outline: none;
+	width:200px;
+}
+</style>
+</head>
+<body>
+<h5>文本框输入提示组件,作者：邬畏畏</h5>
+
+<div style="margin-top:50px;">
+	<input id="input" type="text" value=""/>
+</div>
+
+<div style="margin-top:50px;">
+	<input id="input2" type="text" value=""/>
+</div>
+
+<div style="margin-top:50px;">
+	<input id="input3" type="text" value=""/>
+</div>
+
+<div style="margin-top:50px;">
+	<input id="input4" type="text" value=""/>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="wInputTip.min.js"></script>
+<script type="text/javascript">
+	var t = new wInputTip({
+		id:"input",
+		tip:"请输入手机号",
+		label:{
+			offsetX:5,
+			offsetY:0,
+			type:"custom",
+			onfocus:function(input,label){
+				label.style.top="-30px";
+				label.style.fontSize="10px";
+			},
+			onblur:function(input,label){
+				if(input.value=="")
+				{
+					label.style.top="0";
+					label.style.fontSize="1em";
+				}
+			}
+		}
+	});
+	var t2 = new wInputTip({
+		id:"input2",
+		tip:"姓名",
+		label:{
+			offsetX:5,
+			offsetY:0,
+			type:"custom",
+			onfocus:function(input,label){
+				label.style.left="210px";
+				label.style.fontSize="10px";
+			},
+			onblur:function(input,label){
+				if(input.value=="")
+				{
+					label.style.left="5px";
+					label.style.fontSize="1em";
+				}
+			}
+		}
+	});
+	var t3 = new wInputTip({
+		id:"input3",
+		tip:"年龄",
+		label:{
+			offsetX:10,
+			offsetY:0
+		}
+	});
+	var t4 = new wInputTip({
+		id:"input4",
+		tip:"性别",
+		label:{
+			offsetX:160,
+			offsetY:0
+		}
+	});
+</script>
