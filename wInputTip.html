@@ -48,15 +48,22 @@ input{
 			offsetY:0,
 			type:"custom",
 			onfocus:function(input,label){
-				label.style.top="-30px";
-				label.style.fontSize="10px";
+
 			},
 			onblur:function(input,label){
 				if(input.value=="")
 				{
-					label.style.top="0";
-					label.style.fontSize="1em";
+					label.style.display = "block";
 				}
+			},
+			onkeypress:function(e,input,label){
+				label.style.display = "none";
+			},
+			onchange:function(e,input,label){
+				label.style.display = "none";
+			},
+			onkeyup:function(e,input,label){
+				label.style.display = "none";
 			}
 		}
 	});
@@ -68,13 +75,13 @@ input{
 			offsetY:0,
 			type:"custom",
 			onfocus:function(input,label){
-				label.style.left="210px";
+				label.style.top="-30px";
 				label.style.fontSize="10px";
 			},
 			onblur:function(input,label){
 				if(input.value=="")
 				{
-					label.style.left="5px";
+					label.style.top="0px";
 					label.style.fontSize="1em";
 				}
 			}
@@ -85,7 +92,10 @@ input{
 		tip:"年龄",
 		label:{
 			offsetX:10,
-			offsetY:0
+			offsetY:0,
+			onfocus:function(){
+
+			}
 		}
 	});
 	var t4 = new wInputTip({
