@@ -24,6 +24,10 @@ input{
 </div>
 
 <div style="margin-top:50px;">
+	<input id="input1" type="text" value=""/>
+</div>
+
+<div style="margin-top:50px;">
 	<input id="input2" type="text" value=""/>
 </div>
 
@@ -35,11 +39,20 @@ input{
 	<input id="input4" type="text" value=""/>
 </div>
 
+<div style="position:absolute;top:180px;left:260px;">
+	<button id="btn1">隐藏提示信息</button>
+	<button id="btn2">显示提示信息</button>
+	<button id="btn3">获取文本框值</button>
+	<button id="btn4">设置文本框值</button>
+	<button id="btn5">重置文本框</button>
+	<button id="btn6">清除文本框值</button>
+</div>
 </body>
 </html>
 
 <script type="text/javascript" src="wInputTip.min.js"></script>
 <script type="text/javascript">
+	/*初始化控件 begin */
 	var t = new wInputTip({
 		id:"input",
 		tip:"请输入手机号",
@@ -67,8 +80,8 @@ input{
 			}
 		}
 	});
-	var t2 = new wInputTip({
-		id:"input2",
+	var t1 = new wInputTip({
+		id:"input1",
 		tip:"姓名",
 		label:{
 			offsetX:5,
@@ -82,6 +95,26 @@ input{
 				if(input.value=="")
 				{
 					label.style.top="0px";
+					label.style.fontSize="1em";
+				}
+			}
+		}
+	});
+	var t2 = new wInputTip({
+		id:"input2",
+		tip:"姓名",
+		label:{
+			offsetX:5,
+			offsetY:0,
+			type:"custom",
+			onfocus:function(input,label){
+				label.style.left="210px";
+				label.style.fontSize="10px";
+			},
+			onblur:function(input,label){
+				if(input.value=="")
+				{
+					label.style.left="5px";
 					label.style.fontSize="1em";
 				}
 			}
@@ -101,9 +134,37 @@ input{
 	var t4 = new wInputTip({
 		id:"input4",
 		tip:"性别",
-		label:{
-			offsetX:160,
-			offsetY:0
-		}
+		evtType:"keydown"
 	});
+
+	/*end*/
+
+
+	/*初始化事件*/
+	var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var btn3 = document.getElementById("btn3");
+	var btn4 = document.getElementById("btn4");
+	var btn5 = document.getElementById("btn5");
+	var btn6 = document.getElementById("btn6");
+
+	btn1.onclick = function(){
+		t1.hideTip();
+	}
+	btn2.onclick = function(){
+		//t1.showTip();
+		t1.showTip("Your Name");
+	}
+	btn3.onclick = function(){
+		alert(t1.value());
+	}
+	btn4.onclick = function(){
+		t1.value("123");
+	}
+	btn5.onclick = function(){
+		t1.reSet();
+	}
+	btn6.onclick = function(){
+		t1.clear();
+	}
 </script>
